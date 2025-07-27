@@ -1,6 +1,8 @@
-# Fraud Detection Pipeline
+# Fraud Detection Project
 
-This repository contains a modular pipeline for detecting fraudulent transactions using Python and scikit-learn. The project is organized for clarity and reproducibility, with all data processing steps separated into the `src/preprocessing` package.
+This repository provides a complete pipeline for fraud detection, including data preprocessing, feature engineering, and model training/evaluation. The project is modular and organized for clarity and reproducibility.
+
+---
 
 ## Project Structure
 
@@ -11,8 +13,11 @@ fraud-detection/
 │   │   ├── Fraud_Data.csv
 │   │   └── IpAddress_to_Country.csv
 │   └── processed/
+│       ├── creditcard_processed.csv
+│       └── fraud_data_processed.csv
 ├── notebooks/
-│   └── fraud_notebook.ipynb
+│   ├── fraud_notebook.ipynb         # Data cleaning & feature engineering
+│   └── Model training.ipynb         # Model training & evaluation
 ├── src/
 │   └── preprocessing/
 │       ├── __init__.py
@@ -23,6 +28,8 @@ fraud-detection/
 └── README.md
 ```
 
+---
+
 ## Setup
 
 1. **Clone the repository:**
@@ -32,40 +39,49 @@ fraud-detection/
    ```
 
 2. **Install dependencies:**
-   You can install the required Python packages using pip:
    ```sh
-   pip install pandas scikit-learn numpy
+   pip install pandas scikit-learn numpy xgboost imbalanced-learn
    ```
 
-3. **Data:**
-   Place your raw data files in the `data/raw/` directory:
-   - `Fraud_Data.csv`
-   - `IpAddress_to_Country.csv`
+3. **Prepare data:**
+   - Place your raw data files in `data/raw/`:
+     - `Fraud_Data.csv`
+     - `IpAddress_to_Country.csv`
+
+---
 
 ## Usage
 
-The main workflow is in the Jupyter notebook:  
-`notebooks/fraud_notebook.ipynb`
+### 1. Data Preprocessing
 
-This notebook:
-- Loads raw data
-- Handles missing values
-- Cleans the data
-- Performs feature engineering
-- Transforms data (scaling, encoding, balancing, splitting)
-- Saves processed datasets to `data/processed/`
+- Open `notebooks/fraud_notebook.ipynb`.
+- Run all cells to:
+  - Load and clean the data
+  - Handle missing values
+  - Engineer features (including IP address processing)
+  - Save processed datasets to `data/processed/`
 
-To run the notebook:
-1. Open it in JupyterLab or VS Code.
-2. Run all cells.
+### 2. Model Training & Evaluation
+
+- Open `notebooks/Model training.ipynb`.
+- Run all cells to:
+  - Load processed data
+  - Train Logistic Regression, Random Forest, and XGBoost models
+  - Evaluate models using F1 Score and AUC-PR
+  - Print a summary of results for both datasets
+
+---
 
 ## Customization
 
-- To modify preprocessing steps, edit the corresponding modules in `src/preprocessing/`.
-- The pipeline is modular; you can swap or extend steps as needed.
+- Modify preprocessing steps in `src/preprocessing/` as needed.
+- Add or tune models in `Model training.ipynb`.
+
+---
 
 ## Notes
 
-- Ensure the `src` directory is on your Python path (the notebook handles this automatically).
+- The pipeline is modular: preprocessing and modeling are separated for clarity.
 - All intermediate and final datasets are saved in `data/processed/`.
+- Ensure the `src` directory is on your Python path (the notebooks handle this automatically).
 
