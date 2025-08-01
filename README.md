@@ -73,10 +73,7 @@ fraud-detection/
 
 ---
 
-## Customization
 
-- Modify preprocessing steps in `src/preprocessing/` as needed.
-- Add or tune models in `Model training.ipynb`.
 
 ---
 ### 3. Model Explainability
@@ -94,6 +91,10 @@ fraud-detection/
 - SHAP Summary Plot: highlights overall most influential features
 
 - SHAP Force Plot: explains individual predictions
+## Customization
+
+- Modify preprocessing steps in `src/preprocessing/` as needed.
+- Add or tune models in `Model training.ipynb`.
 ## Notes
 
 - The pipeline is modular: preprocessing and modeling are separated for clarity.
