@@ -9,22 +9,23 @@ This repository provides a complete pipeline for fraud detection, including data
 ```
 fraud-detection/
 ├── data/
-│   ├── raw/
-│   │   ├── Fraud_Data.csv
-│   │   └── IpAddress_to_Country.csv
-│   └── processed/
-│       ├── creditcard_processed.csv
-│       └── fraud_data_processed.csv
+│ ├── raw/
+│ │ ├── Fraud_Data.csv
+│ │ └── IpAddress_to_Country.csv
+│ └── processed/
+│ ├── creditcard_processed.csv
+│ └── fraud_data_processed.csv
 ├── notebooks/
-│   ├── fraud_notebook.ipynb         # Data cleaning & feature engineering
-│   └── Model training.ipynb         # Model training & evaluation
+│ ├── fraud_notebook.ipynb # Data cleaning & feature engineering
+│ ├── Model training.ipynb # Model training & evaluation
+│ └── shap_explainability.ipynb # NEW: Model explainability with SHAP
 ├── src/
-│   └── preprocessing/
-│       ├── __init__.py
-│       ├── missing_values.py
-│       ├── data_cleaning.py
-│       ├── feature_engineering.py
-│       └── data_transformation.py
+│ └── preprocessing/
+│ ├── init.py
+│ ├── missing_values.py
+│ ├── data_cleaning.py
+│ ├── feature_engineering.py
+│ └── data_transformation.py
 └── README.md
 ```
 
@@ -78,7 +79,21 @@ fraud-detection/
 - Add or tune models in `Model training.ipynb`.
 
 ---
+### 3. Model Explainability
 
+- Open notebooks/shap_explainability.ipynb.
+
+- Run the notebook to:
+
+- Load the best-performing model and test data
+
+- Use SHAP (Shapley Additive exPlanations) to analyze global and local feature importance
+
+- Generate visualizations:
+
+- SHAP Summary Plot: highlights overall most influential features
+
+- SHAP Force Plot: explains individual predictions
 ## Notes
 
 - The pipeline is modular: preprocessing and modeling are separated for clarity.
