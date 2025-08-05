@@ -35,7 +35,7 @@ fraud-detection/
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/yourusername/fraud-detection.git
+   git clone https://github.com/ha-bina/fraud-detection.git
    cd fraud-detection
    ```
 
